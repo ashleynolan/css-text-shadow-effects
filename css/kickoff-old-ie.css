@@ -1,0 +1,389 @@
+/**
+ * Site dependencies
+ */
+/**
+ * Core variables
+ * =================================
+ * Edit your color palette and app vars before your begin
+ */
+/**
+ * Colour palette (yeah we're British!)
+ */
+/**
+ * Forms
+ */
+/**
+ * Variables
+ * =================================
+ * Typography
+ * Breakpoints
+ * Paths
+ * Grid setup
+ * Colour palette
+ * Components
+ */
+/**
+ * Typography
+ * =================================
+ * Base sizes:
+ * Set this in pixels (but do not add px),
+ * the font-size mixin will convert to REMS
+ */
+/* Font stacks */
+/**
+ *  Breakpoints
+ * =================================
+ * There are no common breakpoints so these are just a suggestion
+ * You'll need to define your own breakpoints to suit your design
+ */
+/**
+ * Path vars
+ */
+/**
+ * Grid setup
+ * Settings here override & affect the output in scss/partials/components/grid.scss
+ */
+/**
+ * Tables
+ * Customizes the `.table` component with basic values, each used across all table variations.
+ */
+/**
+ * App-specific variables
+ * =================================
+ * Add common vars below here
+ */
+/*
+ * Mixins, helpers and functions
+ * =================================
+ * Most CSS3 vendor prefixed items have a mixin,
+ * but we should not need them if autoprefixer is being used
+ * See mixins/css3.scss for the full list
+ */
+/* ==========================================================================
+   Sass Mixins
+   * Vendor Prefixer
+   * Responsive
+   * CSS3
+   * Utility Mixins
+   * hiDpi
+   * Forms
+   ========================================================================== */
+/* Vendor prefixer */
+/* Responsive mixins */
+/* ==========================================================================
+   Responsive media query mixins
+   * These are used so that we can define separate media-query content
+     for <IE9 and browsers with support for media queries
+   * These are directly related to the global $fix-mqs var defined in
+     kickoff-old-ie.scss
+   * kickoff-old-ie.scss ignores any content in media-queries with values less
+     than the $fix-mqs var value
+   ========================================================================== */
+/*
+   Min-width media query:
+   * Equivalent to: @media screen and (min-width: 20em) { ... }
+   * Usage: @include respond-min(500) { ... };
+   * Argument is a pixel value WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Max-width media query:
+   * Equivalent to: @media screen and (max-width: 20em) { ... }
+   * Usage: @include respond-max(500) { ... };
+   * Argument is a pixel value WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Min-max-width media query:
+   * Equivalent to: @media screen and (min-width: 10em) and (max-width: 20em) { ... }
+   * Usage: @include respond-min-max(500, 600) { ... };
+   * Arguments are pixel values WITHOUT a unit of measurement
+   ========================================================================== */
+/*
+   Old IE specific mixin
+   * Only use this content if we're dealing with old IE
+   * Usage: @include oldie() { ... }
+   ========================================================================== */
+/* CSS3 */
+/**
+ * Linear Gradient
+ * Usage: @include linear-gradient(#000, #BADA55, horizontal, true);
+ */
+/* ==========================================================================
+   Radial Gradient
+   Usage: @include radial-gradient(#000, #BADA55, true);
+   ========================================================================== */
+/**
+ * vertical-center
+ * Vertically center any element. Needs support for CSS tranforms.
+ * Usage:
+ * @include vertical-center;
+ */
+/**
+ * Utility mixins
+ * Clearfix, REM + fallbacks, @font-face, sizing shortcuts, other helpers
+ */
+/* ==========================================================================
+   Utility Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Typography mixins
+   ========================================================================== */
+/* HiDPI */
+/* FORMS */
+/* CSS Reset  */
+/* ==========================================================================
+   Normalize - CSS reset
+
+   http://github.com/necolas/normalize.css
+   Kickoff uses an amended version of this file.
+   ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary,
+main {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+/* ============ */
+/* === BASE === */
+/* ============ */
+body {
+  margin: 0;
+}
+
+a {
+  background: transparent;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* Global typography styles */
+/**
+ * Components:
+ * =================================
+ * Buttons
+ * Lists
+ * Forms
+ * Tables
+ * Code
+ */
+/**
+ * Your app styles
+ * =================================
+ * Global styles
+ * Example partial for masthead & footer
+ * Icons - used in conjunction with grunticon
+ */
+h1, h2, h3 {
+  font-family: 'PT Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+h3 {
+  margin: 0;
+  padding: 10px;
+}
+
+.headingOuter {
+  background: #f1f1f1;
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+.headingOuter:first-child {
+  margin-top: 0;
+}
+
+.headingWrapper {
+  text-align: center;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.color-bright {
+  background-color: #ebaca5;
+}
+
+.header {
+  display: inline-block;
+  text-align: center;
+  font-family: 'Francois One', Helvetica, Arial, sans-serif;
+  font-size: 72px;
+  color: #e7e7e7;
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
+  -moz-transition: all 400ms ease-in-out;
+       transition: all 400ms ease-in-out;
+}
+.color-bright .header {
+  color: #f89bb4;
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+
+.header--pushDown {
+  text-shadow: 1.5px 1.5px 0 #333, 0px 1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px 1.5px 0 #333, 1.5px -1.5px 0 #333, 0.77781746px 0.77781746px 0 #aaaaaa, 1.55563492px 1.55563492px 0 #aaaaaa, 2.33345238px 2.33345238px 0 #aaaaaa, 3.11126984px 3.11126984px 0 #aaaaaa, 3.8890873px 3.8890873px 0 #aaaaaa, 4.66690476px 4.66690476px 0 #aaaaaa, 5.44472222px 5.44472222px 0 #aaaaaa, 6.22253967px 6.22253967px 0 #aaaaaa, 7.00035713px 7.00035713px 0 #aaaaaa, 7.77817459px 7.77817459px 0 #aaaaaa;
+}
+.header--pushDown:hover {
+  -webkit-transform: translate(9px, 9px);
+     -moz-transform: translate(9px, 9px);
+      -ms-transform: translate(9px, 9px);
+          transform: translate(9px, 9px);
+  text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
+}
+.color-bright .header--pushDown {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+.color-bright .header--pushDown:hover {
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+
+.header--raiseUp:hover {
+  -webkit-transform: translate(-9px, -9px);
+     -moz-transform: translate(-9px, -9px);
+      -ms-transform: translate(-9px, -9px);
+          transform: translate(-9px, -9px);
+  text-shadow: 1.5px 1.5px 0 #333, 0px 1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px 1.5px 0 #333, 1.5px -1.5px 0 #333, 0.77781746px 0.77781746px 0 #aaaaaa, 1.55563492px 1.55563492px 0 #aaaaaa, 2.33345238px 2.33345238px 0 #aaaaaa, 3.11126984px 3.11126984px 0 #aaaaaa, 3.8890873px 3.8890873px 0 #aaaaaa, 4.66690476px 4.66690476px 0 #aaaaaa, 5.44472222px 5.44472222px 0 #aaaaaa, 6.22253967px 6.22253967px 0 #aaaaaa, 7.00035713px 7.00035713px 0 #aaaaaa, 7.77817459px 7.77817459px 0 #aaaaaa;
+}
+.color-bright .header--raiseUp:hover {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+
+.header--shadow:hover {
+  -webkit-transform: translate(5px, 0);
+     -moz-transform: translate(5px, 0);
+      -ms-transform: translate(5px, 0);
+          transform: translate(5px, 0);
+}
+.header--shadow.header--raiseUp:hover {
+  -webkit-transform: translate(-5px, 0);
+     -moz-transform: translate(-5px, 0);
+      -ms-transform: translate(-5px, 0);
+          transform: translate(-5px, 0);
+}
+
+svg {
+  line-height: 1.2;
+  width: 250px;
+  height: 1.5em;
+}
+
+.header--svg text,
+.header--svg stop {
+  -moz-transition: all 350ms ease-in-out;
+       transition: all 350ms ease-in-out;
+}
+.header--svg text {
+  text-transform: uppercase;
+  fill: url("/#striped");
+  text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
+}
+.color-bright .header--svg text {
+  fill: url("/#stripedColor");
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+.header--svg:hover text {
+  text-shadow: 1.5px 1.5px 0 #333, 0px 1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px 1.5px 0 #333, 1.5px -1.5px 0 #333, 0.77781746px 0.77781746px 0 #aaaaaa, 1.55563492px 1.55563492px 0 #aaaaaa, 2.33345238px 2.33345238px 0 #aaaaaa, 3.11126984px 3.11126984px 0 #aaaaaa, 3.8890873px 3.8890873px 0 #aaaaaa, 4.66690476px 4.66690476px 0 #aaaaaa, 5.44472222px 5.44472222px 0 #aaaaaa, 6.22253967px 6.22253967px 0 #aaaaaa, 7.00035713px 7.00035713px 0 #aaaaaa, 7.77817459px 7.77817459px 0 #aaaaaa;
+}
+.color-bright .header--svg:hover text {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+.header--svg stop {
+  stop-color: #e7e7e7;
+}
+.color-bright .header--svg stop {
+  stop-color: #f89bb4;
+}
+.header--svg:hover stop {
+  stop-color: #fff;
+}
+.header--svg:hover stop:nth-child(2), .header--svg:hover stop:nth-child(3) {
+  stop-color: #d38076;
+}
+.color-bright .header--svg:hover stop:nth-child(2), .color-bright .header--svg:hover stop:nth-child(3) {
+  stop-color: #ed5751;
+}
+
+/**
+ * Views
+ * =================================
+ */
+/**
+ * Helper/utility classes
+ * =================================
+ */
+
+/*# sourceMappingURL=kickoff-old-ie.css.map */
