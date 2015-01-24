@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Site dependencies
  */
@@ -240,6 +241,17 @@ textarea {
  * Example partial for masthead & footer
  * Icons - used in conjunction with grunticon
  */
+/*
+	The following mixins have compass equivalents:
+	pow, fact, pi, rad, sin, cos
+
+	Only include if you aren’t using compass.  Included for completeness for
+	those who don’t.
+ */
+/*
+	Mixin taken from pen - http://codepen.io/hugo/pen/xzjGB
+	Have added outlineColor to allow addition of a text-shadow outline for the text
+ */
 h1, h2, h3 {
   font-family: 'PT Sans', sans-serif;
   text-transform: uppercase;
@@ -274,10 +286,9 @@ h3 {
   padding: 10px;
 }
 
-.color-bright {
-  background-color: #ebaca5;
-}
-
+/*
+	Start of text effect SCSS
+ */
 .header {
   display: inline-block;
   text-align: center;
@@ -288,10 +299,6 @@ h3 {
   text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
   -moz-transition: all 400ms ease-in-out;
        transition: all 400ms ease-in-out;
-}
-.color-bright .header {
-  color: #f89bb4;
-  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
 }
 
 .header--pushDown {
@@ -304,12 +311,6 @@ h3 {
           transform: translate(9px, 9px);
   text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
 }
-.color-bright .header--pushDown {
-  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
-}
-.color-bright .header--pushDown:hover {
-  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
-}
 
 .header--raiseUp:hover {
   -webkit-transform: translate(-9px, -9px);
@@ -317,9 +318,6 @@ h3 {
       -ms-transform: translate(-9px, -9px);
           transform: translate(-9px, -9px);
   text-shadow: 1.5px 1.5px 0 #333, 0px 1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px 1.5px 0 #333, 1.5px -1.5px 0 #333, 0.77781746px 0.77781746px 0 #aaaaaa, 1.55563492px 1.55563492px 0 #aaaaaa, 2.33345238px 2.33345238px 0 #aaaaaa, 3.11126984px 3.11126984px 0 #aaaaaa, 3.8890873px 3.8890873px 0 #aaaaaa, 4.66690476px 4.66690476px 0 #aaaaaa, 5.44472222px 5.44472222px 0 #aaaaaa, 6.22253967px 6.22253967px 0 #aaaaaa, 7.00035713px 7.00035713px 0 #aaaaaa, 7.77817459px 7.77817459px 0 #aaaaaa;
-}
-.color-bright .header--raiseUp:hover {
-  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
 }
 
 .header--shadow:hover {
@@ -335,9 +333,26 @@ h3 {
           transform: translate(-5px, 0);
 }
 
+.color-bright {
+  background-color: #ebaca5;
+}
+.color-bright .header {
+  color: #f89bb4;
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+.color-bright .header--pushDown {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+.color-bright .header--pushDown:hover {
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+.color-bright .header--raiseUp:hover {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+
 svg {
   line-height: 1.2;
-  width: 250px;
+  width: 310px;
   height: 1.5em;
 }
 
@@ -351,27 +366,28 @@ svg {
   fill: url("/#striped");
   text-shadow: 1.5px 1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px -1.5px 0 #cac6c5, -1.5px 1.5px 0 #cac6c5, 1.5px -1.5px 0 #cac6c5;
 }
-.color-bright .header--svg text {
-  fill: url("/#stripedColor");
-  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
-}
 .header--svg:hover text {
   text-shadow: 1.5px 1.5px 0 #333, 0px 1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px -1.5px 0 #333, -1.5px 1.5px 0 #333, 1.5px -1.5px 0 #333, 0.77781746px 0.77781746px 0 #aaaaaa, 1.55563492px 1.55563492px 0 #aaaaaa, 2.33345238px 2.33345238px 0 #aaaaaa, 3.11126984px 3.11126984px 0 #aaaaaa, 3.8890873px 3.8890873px 0 #aaaaaa, 4.66690476px 4.66690476px 0 #aaaaaa, 5.44472222px 5.44472222px 0 #aaaaaa, 6.22253967px 6.22253967px 0 #aaaaaa, 7.00035713px 7.00035713px 0 #aaaaaa, 7.77817459px 7.77817459px 0 #aaaaaa;
 }
-.color-bright .header--svg:hover text {
-  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
-}
 .header--svg stop {
   stop-color: #e7e7e7;
-}
-.color-bright .header--svg stop {
-  stop-color: #f89bb4;
 }
 .header--svg:hover stop {
   stop-color: #fff;
 }
 .header--svg:hover stop:nth-child(2), .header--svg:hover stop:nth-child(3) {
   stop-color: #d38076;
+}
+
+.color-bright .header--svg text {
+  fill: url(#stripedColor);
+  text-shadow: 1.5px 1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px -1.5px 0 #d38076, -1.5px 1.5px 0 #d38076, 1.5px -1.5px 0 #d38076;
+}
+.color-bright .header--svg:hover text {
+  text-shadow: 1.5px 1.5px 0 #fff, 0px 1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff, -1.5px 1.5px 0 #fff, 1.5px -1.5px 0 #fff, 0.77781746px 0.77781746px 0 #e62915, 1.55563492px 1.55563492px 0 #e62915, 2.33345238px 2.33345238px 0 #e62915, 3.11126984px 3.11126984px 0 #e62915, 3.8890873px 3.8890873px 0 #e62915, 4.66690476px 4.66690476px 0 #e62915, 5.44472222px 5.44472222px 0 #e62915, 6.22253967px 6.22253967px 0 #e62915, 7.00035713px 7.00035713px 0 #e62915, 7.77817459px 7.77817459px 0 #e62915;
+}
+.color-bright stop {
+  stop-color: #f89bb4;
 }
 .color-bright .header--svg:hover stop:nth-child(2), .color-bright .header--svg:hover stop:nth-child(3) {
   stop-color: #ed5751;

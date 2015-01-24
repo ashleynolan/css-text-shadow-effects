@@ -1,3 +1,11 @@
+/*
+	The following mixins have compass equivalents:
+	pow, fact, pi, rad, sin, cos
+
+	Only include if you aren’t using compass.  Included for completeness for
+	those who don’t.
+ */
+
 @function pow($number, $exp) {
   $value: 1;
   @if $exp > 0 {
@@ -57,8 +65,13 @@
   }
   @return $cos;
 }
+////////////////////////////////////////////////
 
-@mixin shade($type, $color: #3498db, $borderColor: #fff, $depth: 20, $angle: 135deg, $long: false, $fade: false) {
+/*
+	Mixin taken from pen - http://codepen.io/hugo/pen/xzjGB
+	Have added outlineColor to allow addition of a text-shadow outline for the text
+ */
+@mixin shade($type, $color: #3498db, $outlineColor: #fff, $depth: 20, $angle: 135deg, $long: false, $fade: false) {
     $angle: ($angle - 90);
     $x: 1.1 * cos($angle) + 0px;
     $y: 1.1 * sin($angle) + 0px;
@@ -66,37 +79,41 @@
     $opacify: 0;
     $shadow: ();
 
-    @if $long == true{
+    @if $long == true {
       $darken:0;
     }
 
     @if $fade == true {
       $opacify: (opacity($color)/$depth) ;
-// added this for rendering in some browsers, remove if you like.
       @include translateZ(0);
     }
 
     @for $i from 1 through $depth {
       $shadow: $shadow, $i*$x $i*$y 0 hsla(hue($color) , saturation($color), (lightness($color) - ($i * $darken)), 1 - ($i * $opacify));
     }
-    #{$type}-shadow:
-    				 1.5px 1.5px 0 $borderColor,
-    				 0px 1.5px 0 $borderColor,
-    				 -1.5px -1.5px 0 $borderColor,
-    				 -1.5px -1.5px 0 $borderColor,
-    				 -1.5px 1.5px 0 $borderColor,
-    				 1.5px -1.5px 0 $borderColor,
+    #{$type}-shadow: 1.5px 1.5px 0 $outlineColor,
+    				 0px 1.5px 0 $outlineColor,
+    				 -1.5px -1.5px 0 $outlineColor,
+    				 -1.5px -1.5px 0 $outlineColor,
+    				 -1.5px 1.5px 0 $outlineColor,
+    				 1.5px -1.5px 0 $outlineColor,
     				 $shadow;
 }
 
+//mixin to provide just a basic outline for the text
+@mixin outline($color: #fff) {
+	text-shadow: 1.5px 1.5px 0 $color,
+    			 -1.5px -1.5px 0 $color,
+    			 -1.5px -1.5px 0 $color,
+    			 -1.5px 1.5px 0 $color,
+    			 1.5px -1.5px 0 $color;
+}
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Uses and expands upon shade mixin idea from pen - http://codepen.io/hugo/pen/xzjGB
-
+// Define the fonts used in the Pen
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 
-//define some colors
+// Define the colors
 $pink		: #f89bb4;
 $pinkPastel	: #ebaca5;
 $pinkDark	: #e62915;
@@ -105,7 +122,7 @@ $pinkGrayed	: #d38076;
 $grayLight	: #cac6c5;
 $offWhite	: #e7e7e7;
 
-//basic header styles
+// Some basic header styling
 h1, h2, h3 {
 	font-family: 'PT Sans', sans-serif;
 	text-transform: uppercase;
@@ -121,7 +138,7 @@ h3 {
 	padding: 10px;
 }
 
-//outer heading wrapper (for descriptions)
+// Outer heading wrapper (for descriptions, not for the actual effects)
 .headingOuter {
 	background: #f1f1f1;
 	text-align: center;
@@ -138,9 +155,11 @@ h3 {
 	background-color: #fff;
 	padding: 10px;
 }
-.color-bright {
-	background-color: $pinkPastel;
-}
+
+
+/*
+	Start of text effect SCSS
+ */
 
 // default header class – used on all examples
 .header {
@@ -151,23 +170,9 @@ h3 {
 	color: $offWhite;
 	text-decoration: none;
 
-	text-shadow: 1.5px 1.5px 0 $grayLight,
-    			 -1.5px -1.5px 0 $grayLight,
-    			 -1.5px -1.5px 0 $grayLight,
-    			 -1.5px 1.5px 0 $grayLight,
-    			 1.5px -1.5px 0 $grayLight;
+	@include outline($grayLight);
 
 	transition: all 400ms ease-in-out;
-
-	//brighter colored example
-	.color-bright & {
-		color: $pink;
-		text-shadow: 1.5px 1.5px 0 $pinkGrayed,
-	    			 -1.5px -1.5px 0 $pinkGrayed,
-	    			 -1.5px -1.5px 0 $pinkGrayed,
-	    			 -1.5px 1.5px 0 $pinkGrayed,
-	    			 1.5px -1.5px 0 $pinkGrayed;
-	}
 }
 
 // effect for pushing the text down onto the page
@@ -177,24 +182,7 @@ h3 {
 
 	&:hover {
 		transform: translate(9px, 9px);
-		text-shadow: 1.5px 1.5px 0 $grayLight,
-	    			-1.5px -1.5px 0 $grayLight,
-	    			-1.5px -1.5px 0 $grayLight,
-	    			-1.5px 1.5px 0 $grayLight,
-	    			1.5px -1.5px 0 $grayLight;
-	}
-
-	//colored version
-	.color-bright & {
-		@include shade(text, $pinkDark, #fff, 10, 135deg, true);
-
-		&:hover {
-			text-shadow: 1.5px 1.5px 0 $pinkGrayed,
-		    			-1.5px -1.5px 0 $pinkGrayed,
-		    			-1.5px -1.5px 0 $pinkGrayed,
-		    			-1.5px 1.5px 0 $pinkGrayed,
-		    			1.5px -1.5px 0 $pinkGrayed;
-		}
+		@include outline($grayLight);
 	}
 }
 
@@ -203,10 +191,6 @@ h3 {
 	&:hover {
 		transform: translate(-9px, -9px);
 		@include shade(text, #aaa, #333, 10, 135deg, true);
-
-		.color-bright & {
-			@include shade(text, $pinkDark, #fff, 10, 135deg, true);
-		}
 	}
 }
 
@@ -224,6 +208,32 @@ h3 {
 	}
 }
 
+
+//Brighter colored text
+.color-bright {
+	background-color: $pinkPastel;
+
+	& .header {
+		color: $pink;
+		@include outline($pinkGrayed);
+	}
+
+	//push down text
+	& .header--pushDown {
+		@include shade(text, $pinkDark, #fff, 10, 135deg, true);
+
+		&:hover {
+			@include outline($pinkGrayed);
+		}
+	}
+
+	//raise up text
+	& .header--raiseUp:hover {
+		@include shade(text, $pinkDark, #fff, 10, 135deg, true);
+	}
+}
+
+
 // SVG Pattern text effect
 // Same as the above but with a pattern text effect on hover
 // Played around with this for a while – cannot be done with background clip and a CSS gradient as the
@@ -231,7 +241,7 @@ h3 {
 // Therefore, use SVG linearGradient and animate the stop points using CSS
 svg {
 	line-height: 1.2;
-	width: 250px;
+	width: 310px;
 	height: 1.5em;
 }
 .header--svg {
@@ -242,36 +252,15 @@ svg {
 	text {
 		text-transform: uppercase;
 		fill: url('/#striped');
-		text-shadow: 1.5px 1.5px 0 $grayLight,
-		    			-1.5px -1.5px 0 $grayLight,
-		    			-1.5px -1.5px 0 $grayLight,
-		    			-1.5px 1.5px 0 $grayLight,
-		    			1.5px -1.5px 0 $grayLight;
-
-		.color-bright & {
-			fill: url('/#stripedColor');
-			text-shadow: 1.5px 1.5px 0 $pinkGrayed,
-		    			-1.5px -1.5px 0 $pinkGrayed,
-		    			-1.5px -1.5px 0 $pinkGrayed,
-		    			-1.5px 1.5px 0 $pinkGrayed,
-		    			1.5px -1.5px 0 $pinkGrayed;
-		}
+		@include outline($grayLight);
 	}
 	&:hover text {
 		@include shade(text, #aaa, #333, 10, 135deg, true);
-
-		.color-bright & {
-			@include shade(text, $pinkDark, #fff, 10, 135deg, true);
-		}
 	}
 
 	//animate gradient stop points
 	& stop {
 		stop-color: $offWhite;
-
-		.color-bright & {
-			stop-color: $pink;
-		}
 	}
 	&:hover stop {
 		stop-color: #fff;
@@ -279,10 +268,29 @@ svg {
 		&:nth-child(2),
 		&:nth-child(3) {
 			stop-color: $pinkGrayed;
-
-			.color-bright & {
-				stop-color: #ed5751;
-			}
 		}
 	}
+}
+
+//brighter version of the SVG pattern text
+.color-bright {
+	& .header--svg {
+		text {
+			fill: url(#stripedColor);
+			@include outline($pinkGrayed);
+		}
+		&:hover text {
+			@include shade(text, $pinkDark, #fff, 10, 135deg, true);
+		}
+	}
+	& stop {
+		stop-color: $pink;
+	}
+	& .header--svg:hover stop {
+		&:nth-child(2),
+		&:nth-child(3) {
+			stop-color: #ed5751;
+		}
+	}
+
 }
